@@ -8,7 +8,8 @@ function App() {
         <div>
             <Header />
             {notes.map((note) => (
-                <Note 
+                <Note
+                    key={note.id} 
                     title={note.title}
                     content={note.content}
                 />
