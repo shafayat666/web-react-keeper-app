@@ -12,7 +12,7 @@ function App() {
       return [...initValue, note]
     });
   }
-  
+
   function deleteNote(id) {
     setItems(initValue => {
       return initValue.filter((item, index) => {
@@ -21,14 +21,25 @@ function App() {
     });
   }
 
+  const isExpand = false;
+
+  function areaExpand() {
+    // isExpand = true;
+    console.log("Got Clicked!");
+  }
+
   return (
     <div>
       <Header />
-      <CreateArea onAdd={addNote} />
+      <CreateArea
+        expandInput={areaExpand}
+        isExpanded={isExpand}
+        onAdd={addNote} />
+
       {items.map((noteItem, index) => (
         <Note
           key={index}
-          id={index} 
+          id={index}
           title={noteItem.title}
           content={noteItem.content}
           onSelect={deleteNote} />
